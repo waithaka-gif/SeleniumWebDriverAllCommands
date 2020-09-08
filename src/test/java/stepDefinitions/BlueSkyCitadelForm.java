@@ -59,7 +59,7 @@ public class BlueSkyCitadelForm {
     @Then("^I close my window$")
     public void iCloseMyWindow() {
         driver.close();
-        driver.quit();
+        //driver.quit();
     }
 
     @And("^I enter email address$")
@@ -103,8 +103,8 @@ public class BlueSkyCitadelForm {
 
     @And("^I get the Window Handle$")
     public void iGetTheWindowHandle() {
-        String pageHnadle = driver.getWindowHandle();
-        System.out.println(pageHnadle);
+        String pageHandle = driver.getWindowHandle();
+        System.out.println(pageHandle);
 
     }
 
@@ -123,7 +123,7 @@ public class BlueSkyCitadelForm {
 
     @And("^I type the password$")
     public void iTypeThePassword() {
-        driver.findElement(By.name("nf-field-144")).sendKeys("Mypassword");
+        driver.findElement(By.name("nf-field-144")).sendKeys("password");
 
     }
 
