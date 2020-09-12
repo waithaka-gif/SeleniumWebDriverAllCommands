@@ -6,7 +6,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Locale;
 
 public class BlueSkyCitadelForm {
     WebDriver driver;
@@ -34,7 +38,7 @@ public class BlueSkyCitadelForm {
 
     @And("^I enter the Single Line Text$")
     public void iEnterTheSingleLineText()  {
-        driver.findElement(By.xpath("//*[@id=\"nf-field-135\"]")).sendKeys("My first line");
+        driver.findElement(By.xpath("//*[@id=\"nf-field-135\"]")).sendKeys("Hello Automation Class");
 
     }
 
@@ -64,7 +68,7 @@ public class BlueSkyCitadelForm {
 
     @And("^I enter email address$")
     public void iEnterEmailAddress() {
-        driver.findElement(By.id("nf-field-124")).sendKeys("myblueskyemail@test.com");
+        driver.findElement(By.id("nf-field-124")).sendKeys("patrick@test.com");
     }
 
     @And("^I enter password$")
@@ -158,5 +162,80 @@ public class BlueSkyCitadelForm {
 
        boolean isMessageDisplayed =  driver.findElement(By.cssSelector("#nf-form-errors-9 > nf-errors > nf-section > div")).isDisplayed();
         System.out.println(isMessageDisplayed);
+
+
+    
+    }
+
+    @And("^I Multi select One$")
+    public void iMultiSelectOne() {
+        driver.findElement(By.cssSelector("#nf-field-137 > option:nth-child(1)")).click();
+
+
+    }
+
+    @And("^I Checkbox List One$")
+    public void iCheckboxListOne() {
+        WebElement one = driver.findElement(By.xpath("//*[@id=\"nf-label-field-139-0\"]"));
+        one.click();
+
+    }
+
+    @And("^I Select Date$")
+    public void iSelectDate() {
+        WebElement selectDate = driver.findElement(By.xpath("//*[@id=\"nf-field-141-wrap\"]/div[2]/div/input[2]"));
+        selectDate.click();
+
+    }
+
+    @And("^I Click Single Checkbox$")
+    public void iClickSingleCheckbox() {
+        driver.findElement(By.xpath("//*[@id=\"nf-label-field-142\"]")).click();
+    }
+
+    @And("^I Enter Paragraph Text$")
+    public void iEnterParagraphText() {
+        driver.findElement(By.xpath("//*[@id=\"nf-field-143\"]")).sendKeys("Thank you Mr. Deji and Bluesky Citadel Team , i love Automation");
+
+
+
+
+
+
+
+
+    }
+
+    @And("^I Checkbox Three$")
+    public void iCheckboxThree() {
+        driver.findElement(By.xpath("//*[@id=\"nf-label-field-139-2\"]")).click();
+    }
+
+    @And("^I Select Radio$")
+    public void iSelectRadio() {
+        WebElement radiobutton = driver.findElement(By.cssSelector("#nf-field-138-wrap > div.nf-field-element > ul > li:nth-child(3)"));
+        radiobutton.click();
+
+
+
+
+    }
+
+    @And("^I  Select in the Drop down$")
+    public void iSelectInTheDropDown() {
+        Select dropdown = new Select(driver.findElement(By.xpath("//*[@id=\"nf-field-136\"]")));
+        //dropdown.selectByVisibleText("Two ");
+        dropdown.selectByIndex(2);
+
+
+    }
+
+    @And("^I Select dropdown Country$")
+    public void iSelectDropdownCountry() {
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"nf-field-140\"]"));
+        Select oSelect = new Select(element);
+
     }
 }
+
+
